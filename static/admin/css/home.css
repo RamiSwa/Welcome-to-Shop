@@ -1,0 +1,47 @@
+/* Card Elastic Hover Effect */
+.product-card {
+    transition: transform 0.3s cubic-bezier(0.25, 1.5, 0.5, 1); /* Elastic-like hover */
+}
+
+.product-card:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Elevated shadow */
+}
+
+/* Positioning the "See All" button above the banner */
+.see-all-btn {
+    top: -30px; /* Adjust the vertical positioning */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1; /* Ensure it stays above the banner */
+}
+
+/* Additional Card Styles */
+.card-img-top {
+    border-radius: 10px 10px 0 0;
+    transition: transform 0.3s ease; /* Smooth image scaling */
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.05); /* Image zoom on hover */
+}
+
+.card-title {
+    font-weight: 600;
+}
+
+.price {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.btn-outline-primary:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* General Button Styling */
+.see-all-btn:hover {
+    transform: translateX(-50%) scale(1.05);
+    transition: transform 0.3s cubic-bezier(0.25, 1.5, 0.5, 1);
+}
