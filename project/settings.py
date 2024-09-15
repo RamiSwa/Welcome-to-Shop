@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -98,6 +99,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 8,
+        }
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
@@ -105,7 +109,11 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+    {
+        'NAME': 'accounts.validators.CustomPasswordValidator',
+    },
 ]
+
 
 
 # Internationalization
@@ -137,3 +145,28 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'secondary',  # Maps DEBUG level to Bootstrap's 'alert-secondary'
+    messages.INFO: 'info',        # Maps INFO level to 'alert-info'
+    messages.SUCCESS: 'success',  # Maps SUCCESS level to 'alert-success'
+    messages.WARNING: 'warning',  # Maps WARNING level to 'alert-warning'
+    messages.ERROR: 'danger',     # Maps ERROR level to 'alert-danger'
+}
+
+
+
+
+
+# SMTP configuration
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '587'
+EMAIL_USE_TLS = True
+
+# SETup the email backend
+
+EMAIL_HOST_USER = 'djfull4u@gmail.com' # your email Gmail address
+EMAIL_HOST_PASSWORD = 'htrivvmzfmnxfion' # Enter your app password

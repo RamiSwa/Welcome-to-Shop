@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content padding-y" style="background-color: #f8f9fa; padding: 60px 0;">
+    <!-- ============================ COMPONENT REGISTER ================================= -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-12">
+                <div class="card border-light shadow-sm rounded">
+                    <div class="card-header text-center bg-primary text-white rounded-top">
+                        <h4 class="card-title mb-0">Sign Up</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        {% include "includes/alert.html" %}
+                        <form action="{% url 'register' %}" method="post">
+                            {% csrf_token %}
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="{{ form.first_name.id_for_label }}">First Name</label>
+                                    {{ form.first_name }}
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="{{ form.last_name.id_for_label }}">Last Name</label>
+                                    {{ form.last_name }}
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="{{ form.email.id_for_label }}">Email Address</label>
+                                    {{ form.email }}
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="{{ form.phone_number.id_for_label }}">Phone Number</label>
+                                    {{ form.phone_number }}
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="{{ form.password.id_for_label }}">Create Password</label>
+                                    {{ form.password }}
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="{{ form.confirm_password.id_for_label }}">Repeat Password</label>
+                                    {{ form.confirm_password }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <p class="font-weight-bold">Password Requirements:</p>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check text-success"></i> At least 8 characters long</li>
+                                    <li><i class="fas fa-check text-success"></i> Contains at least one uppercase letter (A-Z)</li>
+                                    <li><i class="fas fa-check text-success"></i> Contains at least one lowercase letter (a-z)</li>
+                                    <li><i class="fas fa-check text-success"></i> Contains at least one digit (0-9)</li>
+                                    <li><i class="fas fa-check text-success"></i> Contains at least one special character (e.g., @, $, !, %, *, ?, &)</li>
+                                </ul>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block">Register</button>
+                            </div>
+                            {{ form.non_field_errors }}
+                        </form>
+                    </div>
+                </div>
+                <p class="text-center mt-4">Already have an account? <a href="{% url 'login' %}" class="text-primary">Log In</a></p>
+            </div>
+        </div>
+    </div>
+    <!-- ============================ COMPONENT REGISTER END ================================= -->
+</section>
+<!-- ========================= SECTION CONTENT END ========================= -->
+
+{% block extra_css %}
+<!-- Add any additional custom CSS here -->
+<style>
+    .card {
+        border-radius: 0.5rem;
+        overflow: hidden;
+    }
+    .card-header {
+        background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+        padding: 1.5rem;
+    }
+    .card-body {
+        padding: 2rem;
+    }
+    .form-control {
+        border-radius: 0.25rem;
+        border: 1px solid #ced4da;
+    }
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+    }
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #004494;
+    }
+    .list-unstyled li {
+        margin-bottom: 0.5rem;
+    }
+    .text-primary {
+        color: #007bff !important;
+    }
+    .font-weight-bold {
+        font-weight: 700;
+    }
+</style>
+{% endblock %}
+{% endblock %}

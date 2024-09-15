@@ -1,23 +1,69 @@
 {% load static %}
 
-    <!-- ========================= FOOTER ========================= -->
-    <footer class="section-footer border-top">
-        <div class="container">
-            <section class="footer-bottom border-top row">
-                <div class="col-md-2">
-                    <p class="text-muted"> &copy 2019 Company name </p>
+<!-- ========================= FOOTER ========================= -->
+<footer class="section-footer border-top" style="background-color: #800020; color: white; padding: 40px 0;">
+    <div class="container">
+        <!-- Quick Links Section -->
+        <div class="row">
+            <div class="col-md-4">
+                <h6 class="text-uppercase" style="color: #C0A775;">Adele Glorious Gifts</h6>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-light">About Us</a></li>
+                    <li><a href="#" class="text-light">Contact Us</a></li>
+                    <li><a href="#" class="text-light">FAQ</a></li>
+                    <li><a href="#" class="text-light">Privacy Policy</a></li>
+                    <li><a href="#" class="text-light">Terms & Conditions</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter Signup Section -->
+            <div class="col-md-4">
+                <h6 class="text-uppercase" style="color: #C0A775;">Subscribe to Newsletter</h6>
+                <form action="" method="POST" class="d-flex">
+                    <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-gold ml-2">Subscribe</button>
+                </form>
+                <p class="text-light mt-2">Get the latest updates and handcrafted offers.</p>
+            </div>
+
+            <!-- Social Media Section -->
+            <div class="col-md-4">
+                <h6 class="text-uppercase" style="color: #C0A775;">Follow Us</h6>
+                <div>
+                    <a href="#" class="text-light px-2"><i class="fab fa-facebook fa-lg"></i></a>
+                    <a href="#" class="text-light px-2"><i class="fab fa-twitter fa-lg"></i></a>
+                    <a href="#" class="text-light px-2"><i class="fab fa-instagram fa-lg"></i></a>
+                    <a href="#" class="text-light px-2"><i class="fab fa-pinterest fa-lg"></i></a>
                 </div>
-                <div class="col-md-8 text-md-center">
-                    <span class="px-2">info@pixsellz.io</span>
-                    <span class="px-2">+879-332-9375</span>
-                    <span class="px-2">Street name 123, Avanue abc</span>
-                </div>
-                <div class="col-md-2 text-md-right text-muted">
-                    <i class="fab fa-lg fa-cc-visa"></i>
-                    <i class="fab fa-lg fa-cc-paypal"></i>
-                    <i class="fab fa-lg fa-cc-mastercard"></i>
-                </div>
-            </section>
-        </div><!-- //container -->
-    </footer>
-    <!-- ========================= FOOTER END // ========================= -->
+            </div>
+        </div>
+
+        <section class="footer-bottom border-top row mt-4 pt-3" style="border-color: #C0A775;">
+            <div class="col-md-4">
+                <p class="text-light"> &copy; {{ current_year }} Adele Glorious Gifts. All rights reserved.</p>
+            </div>
+            <div class="col-md-4 text-md-center">
+                <span class="px-2 text-light">info@adelegifts.com</span>
+                <span class="px-2 text-light">+123-456-7890</span>
+                <span class="px-2 text-light">1234 Street Name, City, Country</span>
+            </div>
+            <div class="col-md-4 text-md-right">
+                <i class="fab fa-lg fa-cc-visa text-light"></i>
+                <i class="fab fa-lg fa-cc-paypal text-light"></i>
+                <i class="fab fa-lg fa-cc-mastercard text-light"></i>
+            </div>
+        </section>
+    </div><!-- //container -->
+</footer>
+<!-- ========================= FOOTER END // ========================= -->
+
+<style>
+    .btn-gold {
+        background-color: #C0A775;
+        color: white;
+    }
+    .btn-gold:hover {
+        background-color: #b59060;
+        color: #fff;
+    }
+</style>

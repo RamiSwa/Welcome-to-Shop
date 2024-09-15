@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import Http404, HttpResponse
 from django.shortcuts import render, get_object_or_404
 
 from carts.models import CartItem
@@ -42,15 +42,25 @@ def product_detail(request, category_slug, product_slug):
     try:
         single_product = Product.objects.get(category__slug=category_slug, slug=product_slug)
         in_cart = CartItem.objects.filter(cart__cart_id=_cart_id(request), product=single_product).exists()
+        
+        # Collect variation categories and their values
+        variation_categories = {}
+        for variation in single_product.variation_set.all():
+            category = variation.variation_category
+            if category not in variation_categories:
+                variation_categories[category] = []
+            variation_categories[category].append(variation)
 
-    except Exception as e:
-        raise e
-    
+    except Product.DoesNotExist:
+        raise Http404("Product does not exist")
+
     context = {
         'single_product': single_product,
-        'in_cart'       : in_cart,
+        'in_cart': in_cart,
+        'variation_categories': variation_categories,
     }
     return render(request, 'store/product_detail.html', context=context)
+
 
 
 def search(request):
