@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Product, Variation
+from .models import ReviewRating
 
 # Register your models here.
 
@@ -25,3 +26,14 @@ class VariationAdmin(admin.ModelAdmin):
     
     # Adding search fields for quick access to specific variations
     search_fields = ['product__product_name', 'variation_value']
+
+
+
+
+class ReviewRatingAdmin(admin.ModelAdmin):
+    list_display = ('product', 'user', 'rating', 'status', 'created_at')
+    list_filter = ('status', 'created_at', 'updated_at')
+    search_fields = ('product__product_name', 'user__username', 'subject', 'review')
+    readonly_fields = ('ip', 'created_at', 'updated_at')
+
+admin.site.register(ReviewRating, ReviewRatingAdmin)
